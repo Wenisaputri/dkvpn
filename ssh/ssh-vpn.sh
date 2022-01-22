@@ -1,6 +1,6 @@
 #!/bin/bash
 # By geovpn
-# My Telegram : https://t.me/geovpn
+# My Telegram : https://link.dpvpn.tk/wa
 # ==========================================
 # Color
 RED='\033[0;31m'
