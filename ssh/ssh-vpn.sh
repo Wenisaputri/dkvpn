@@ -15,7 +15,7 @@ LIGHT='\033[0;37m'
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
-IZIN=$( curl https://dpvpn.me/ip.json | grep $MYIP )
+IZIN=$( curl https://raw.githubusercontent.com/geovpn/perizinan/main/ip | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
 echo -e "${NC}${GREEN}Permission Accepted...${NC}"
 else
@@ -26,28 +26,28 @@ exit 0
 fi
 # ==================================================
 # Link Hosting Kalian
-1="raw.githubusercontent.com/geovpn/scvps/main/ssh"
+geovpn="raw.githubusercontent.com/geovpn/scvps/main/ssh"
 
 # Link Hosting Kalian Untuk Xray
-2="raw.githubusercontent.com/geovpn/scvps/main/xray"
+geovpnn="raw.githubusercontent.com/geovpn/scvps/main/xray"
 
 # Link Hosting Kalian Untuk Trojan Go
-3="raw.githubusercontent.com/geovpn/scvps/main/trojango"
+geovpnnn="raw.githubusercontent.com/geovpn/scvps/main/trojango"
 
 # Link Hosting Kalian Untuk Stunnel5
-#4="raw.githubusercontent.com/geovpn/scvps/main/stunnel5"
+#geovpnnnn="raw.githubusercontent.com/geovpn/scvps/main/stunnel5"
 
 # Link Hosting Kalian Untuk menu
-5="raw.githubusercontent.com/geovpn/scvps/main/menu"
+geovpnnnnn="raw.githubusercontent.com/geovpn/scvps/main/menu"
 
 # Link Hosting Kalian Untuk banner
-6="raw.githubusercontent.com/geovpn/scvps/main/banner"
+geovpnnnnnn="raw.githubusercontent.com/geovpn/scvps/main/banner"
 
 # Link Hosting Kalian Untuk dom
-7="raw.githubusercontent.com/geovpn/scvps/main/dom"
+geovpnnnnnnn="raw.githubusercontent.com/geovpn/scvps/main/dom"
 
 # Link Hosting Kalian Untuk trial
-8="raw.githubusercontent.com/geovpn/scvps/main/trial"
+geovpnnnnnnnn="raw.githubusercontent.com/geovpn/scvps/main/trial"
 
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
@@ -67,7 +67,7 @@ commonname=www.geogabut.com
 email=paoandest@gmail.com
 
 # simple password minimal
-wget -O /etc/pam.d/common-password "https://${1}/password"
+wget -O /etc/pam.d/common-password "https://${geovpn}/password"
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -165,12 +165,12 @@ echo "<?php phpinfo() ?>" > /home/vps/public_html/info.php
 chown -R www-data:www-data /home/vps/public_html
 chmod -R g+rw /home/vps/public_html
 cd /home/vps/public_html
-wget -O /home/vps/public_html/index.html "https://${1}/index.html1"
+wget -O /home/vps/public_html/index.html "https://${geovpn}/index.html1"
 /etc/init.d/nginx restart
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://${1}/badvpn-udpgw64"
+wget -O /usr/bin/badvpn-udpgw "https://${geovpn}/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -262,13 +262,13 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 /etc/init.d/stunnel4 restart
 
 #OpenVPN
-wget https://${1}/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
+wget https://${geovpn}/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
 
 # Install BBR
-wget https://${1}/bbr.sh && chmod +x bbr.sh && ./bbr.sh
+wget https://${geovpn}/bbr.sh && chmod +x bbr.sh && ./bbr.sh
 
 # Ganti Banner
-wget -O /etc/issue.net "https://${1}/issue.net"
+wget -O /etc/issue.net "https://${geovpn}/issue.net"
 
 # install fail2ban
 apt -y install fail2ban
@@ -324,121 +324,121 @@ netfilter-persistent reload
 
 # download script
 cd /usr/bin
-wget -O addhost "https://${1}/addhost.sh"
-wget -O autoreboot "https://${1}/autoreboot.sh"
-wget -O about "https://${1}/about.sh"
-wget -O menu "https://${1}/menu.sh"
-wget -O addssh "https://${1}/addssh.sh"
-wget -O trialssh "https://${1}/trialssh.sh"
-wget -O delssh "https://${1}/delssh.sh"
-wget -O member "https://${1}/member.sh"
-wget -O delexp "https://${1}/delexp.sh"
-wget -O cekssh "https://${1}/cekssh.sh"
-wget -O restart "https://${1}/restart.sh"
-wget -O speedtest "https://${1}/speedtest_cli.py"
-wget -O info "https://${1}/info.sh"
-wget -O ram "https://${1}/ram.sh"
-wget -O renewssh "https://${1}/renewssh.sh"
-wget -O autokill "https://${1}/autokill.sh"
-wget -O ceklim "https://${1}/ceklim.sh"
-wget -O tendang "https://${1}/tendang.sh"
-wget -O clearlog "https://${1}/clearlog.sh"
-wget -O changeport "https://${1}/changeport.sh"
-wget -O portovpn "https://${1}/portovpn.sh"
-wget -O portwg "https://${1}/portwg.sh"
-wget -O porttrojan "https://${1}/porttrojan.sh"
-wget -O portsstp "https://${1}/portsstp.sh"
-wget -O portsquid "https://${1}/portsquid.sh"
-wget -O portv2ray "https://${1}/portv2ray.sh"
-wget -O portvless "https://${1}/portvless.sh"
-wget -O wbmn "https://${1}/webmin.sh"
-wget -O xp "https://${1}/xp.sh"
-wget -O menu-backup "https://${5}/menu-backup.sh"
-wget -O menu-domain "https://${5}/menu-domain.sh"
-wget -O menu-l2tp "https://${5}/menu-l2tp.sh"
-wget -O menu "https://${5}/menu.sh"
-wget -O menu-pptp "https://${5}/menu-pptp.sh"
-wget -O menu-shadowsocks "https://${5}/menu-shadowsocks.sh"
-wget -O menu-ssh "https://${5}/menu-ssh.sh"
-wget -O menu-sstp "https://${5}/menu-sstp.sh"
-wget -O menu-tools "https://${5}/menu-tools.sh"
-wget -O menu-trial "https://${5}/menu-trial.sh"
-wget -O menu-trojan "https://${5}/menu-trojan.sh"
-wget -O menu-v2ray "https://${5}/menu-v2ray.sh"
-wget -O menu-vpn "https://${5}/menu-vpn.sh"
-wget -O menu-wireguard "https://${5}/menu-wireguard.sh"
-wget -O bbr "https://${5}/bbr.sh"
-wget -O status "https://${5}/status.sh"
-wget -O running "https://${5}/running.sh"
-wget -O swapkvm "https://${1}/swapkvm.sh"
-wget -O addv2ray "https://${2}/addv2ray.sh"
-wget -O trialv2ray "https://${2}/trialv2ray.sh"
-wget -O addvless "https://${2}/addvless.sh"
-wget -O addtrojan "https://${2}/addtrojan.sh"
-wget -O delv2ray "https://${2}/delv2ray.sh"
-wget -O delvless "https://${2}/delvless.sh"
-wget -O deltrojan "https://${2}/deltrojan.sh"
-wget -O cekv2ray "https://${2}/cekv2ray.sh"
-wget -O cekvless "https://${2}/cekvless.sh"
-wget -O cektrojan "https://${2}/cektrojan.sh"
-wget -O renewv2ray "https://${2}/renewv2ray.sh"
-wget -O renewvless "https://${2}/renewvless.sh"
-wget -O renewtrojan "https://${2}/renewtrojan.sh"
-wget -O certv2ray "https://${2}/certv2ray.sh"
-wget -O addtrgo "https://${3}/addtrgo.sh"
-wget -O deltrgo "https://${3}/deltrgo.sh"
-wget -O renewtrgo "https://${3}/renewtrgo.sh"
-wget -O cektrgo "https://${3}/cektrgo.sh"
-wget -O bebek "https://${5}/bebek.sh"
-wget -O l2tp "https://${5}/l2tp.sh"
-wget -O medo "https://${5}/medo.sh"
-wget -O menu "https://${5}/menu.sh"
-wget -O paneli "https://${5}/paneli.sh"
-wget -O ppt "https://${5}/ppt.sh"
-wget -O ssh "https://${5}/ssh.sh"
-wget -O ssssr "https://${5}/ssssr.sh"
-wget -O sstpp "https://${5}/sstpp.sh"
-wget -O status "https://${5}/status.sh"
-wget -O system "https://${5}/system.sh"
-wget -O trojaan "https://${5}/trojaan.sh"
-wget -O v2raay "https://${5}/v2raay.sh"
-wget -O wgr "https://${5}/wgr.sh"
-wget -O bbr "https://${5}/bbr.sh"
-wget -O bannerku "https://${5}/bannerku"
-wget -O bannerDOMAIN "https://${6}/bannerDOMAIN"
-wget -O bannerTRIAL "https://${6}/bannerTRIAL"
-wget -O bannerL2TP "https://${6}/bannerL2TP"
-wget -O bannerPPTP "https://${6}/bannerPPTP"
-wget -O bannerSHADOWSOCK "https://${6}/bannerSHADOWSOCK"
-wget -O bannerSSH "https://${6}/bannerSSH"
-wget -O bannerSSTP "https://${6}/bannerSSTP"
-wget -O bannerSYSTEM "https://${6}/bannerSYSTEM"
-wget -O bannerTROJAN "https://${6}/bannerTROJAN"
-wget -O bannerV2RAY "https://${6}/bannerV2RAY"
-wget -O bannerVPN "https://${6}/bannerVPN"
-wget -O bannerWIREGUARD "https://${6}/bannerWIREGUARD"
-wget -O bannerBACKUP "https://${6}/bannerBACKUP"
-wget -O addcf "https://${7}/addcf.sh"
-wget -O cfd "https://${7}/cfd.sh"
-wget -O cff "https://${7}/cff.sh"
-wget -O cfh "https://${7}/cfh.sh"
-wget -O host "https://${7}/host.sh"
-wget -O pointing "https://${7}/pointing.sh"
-wget -O bw "https://${7}/bw.sh"
-wget -O update "https://${7}/update.sh"
-wget -O host "https://${7}/host.sh"
-wget -O trial-akun "https://${8}/trial-akun.sh"
-wget -O triall2tp "https://${8}/triall2tp.sh"
-wget -O trialpptp "https://${8}/trialpptp.sh"
-wget -O trialss "https://${8}/trialss.sh"
-wget -O trialssh "https://${8}/trialssh.sh"
-wget -O trialssr "https://${8}/trialssr.sh"
-wget -O trialsstp "https://${8}/trialsstp.sh"
-wget -O trialtrojan "https://${8}/trialtrojan.sh"
-wget -O trialv2ray "https://${8}/trialv2ray.sh"
-wget -O trialvless "https://${8}/trialvless.sh"
-wget -O trialwg "https://${8}/trialwg.sh"
-wget -O /usr/bin/trialv2ray https://${8}/trialv2ray.sh && chmod +x /usr/bin/trialv2ray && cd /usr/bin && apt install -y dos2unix && dos2unix trialv2ray
+wget -O addhost "https://${geovpn}/addhost.sh"
+wget -O autoreboot "https://${geovpn}/autoreboot.sh"
+wget -O about "https://${geovpn}/about.sh"
+wget -O menu "https://${geovpn}/menu.sh"
+wget -O addssh "https://${geovpn}/addssh.sh"
+wget -O trialssh "https://${geovpn}/trialssh.sh"
+wget -O delssh "https://${geovpn}/delssh.sh"
+wget -O member "https://${geovpn}/member.sh"
+wget -O delexp "https://${geovpn}/delexp.sh"
+wget -O cekssh "https://${geovpn}/cekssh.sh"
+wget -O restart "https://${geovpn}/restart.sh"
+wget -O speedtest "https://${geovpn}/speedtest_cli.py"
+wget -O info "https://${geovpn}/info.sh"
+wget -O ram "https://${geovpn}/ram.sh"
+wget -O renewssh "https://${geovpn}/renewssh.sh"
+wget -O autokill "https://${geovpn}/autokill.sh"
+wget -O ceklim "https://${geovpn}/ceklim.sh"
+wget -O tendang "https://${geovpn}/tendang.sh"
+wget -O clearlog "https://${geovpn}/clearlog.sh"
+wget -O changeport "https://${geovpn}/changeport.sh"
+wget -O portovpn "https://${geovpn}/portovpn.sh"
+wget -O portwg "https://${geovpn}/portwg.sh"
+wget -O porttrojan "https://${geovpn}/porttrojan.sh"
+wget -O portsstp "https://${geovpn}/portsstp.sh"
+wget -O portsquid "https://${geovpn}/portsquid.sh"
+wget -O portv2ray "https://${geovpn}/portv2ray.sh"
+wget -O portvless "https://${geovpn}/portvless.sh"
+wget -O wbmn "https://${geovpn}/webmin.sh"
+wget -O xp "https://${geovpn}/xp.sh"
+wget -O menu-backup "https://${geovpnnnnn}/menu-backup.sh"
+wget -O menu-domain "https://${geovpnnnnn}/menu-domain.sh"
+wget -O menu-l2tp "https://${geovpnnnnn}/menu-l2tp.sh"
+wget -O menu "https://${geovpnnnnn}/menu.sh"
+wget -O menu-pptp "https://${geovpnnnnn}/menu-pptp.sh"
+wget -O menu-shadowsocks "https://${geovpnnnnn}/menu-shadowsocks.sh"
+wget -O menu-ssh "https://${geovpnnnnn}/menu-ssh.sh"
+wget -O menu-sstp "https://${geovpnnnnn}/menu-sstp.sh"
+wget -O menu-tools "https://${geovpnnnnn}/menu-tools.sh"
+wget -O menu-trial "https://${geovpnnnnn}/menu-trial.sh"
+wget -O menu-trojan "https://${geovpnnnnn}/menu-trojan.sh"
+wget -O menu-v2ray "https://${geovpnnnnn}/menu-v2ray.sh"
+wget -O menu-vpn "https://${geovpnnnnn}/menu-vpn.sh"
+wget -O menu-wireguard "https://${geovpnnnnn}/menu-wireguard.sh"
+wget -O bbr "https://${geovpnnnnn}/bbr.sh"
+wget -O status "https://${geovpnnnnn}/status.sh"
+wget -O running "https://${geovpnnnnn}/running.sh"
+wget -O swapkvm "https://${geovpn}/swapkvm.sh"
+wget -O addv2ray "https://${geovpnn}/addv2ray.sh"
+wget -O trialv2ray "https://${geovpnn}/trialv2ray.sh"
+wget -O addvless "https://${geovpnn}/addvless.sh"
+wget -O addtrojan "https://${geovpnn}/addtrojan.sh"
+wget -O delv2ray "https://${geovpnn}/delv2ray.sh"
+wget -O delvless "https://${geovpnn}/delvless.sh"
+wget -O deltrojan "https://${geovpnn}/deltrojan.sh"
+wget -O cekv2ray "https://${geovpnn}/cekv2ray.sh"
+wget -O cekvless "https://${geovpnn}/cekvless.sh"
+wget -O cektrojan "https://${geovpnn}/cektrojan.sh"
+wget -O renewv2ray "https://${geovpnn}/renewv2ray.sh"
+wget -O renewvless "https://${geovpnn}/renewvless.sh"
+wget -O renewtrojan "https://${geovpnn}/renewtrojan.sh"
+wget -O certv2ray "https://${geovpnn}/certv2ray.sh"
+wget -O addtrgo "https://${geovpnnn}/addtrgo.sh"
+wget -O deltrgo "https://${geovpnnn}/deltrgo.sh"
+wget -O renewtrgo "https://${geovpnnn}/renewtrgo.sh"
+wget -O cektrgo "https://${geovpnnn}/cektrgo.sh"
+wget -O bebek "https://${geovpnnnnn}/bebek.sh"
+wget -O l2tp "https://${geovpnnnnn}/l2tp.sh"
+wget -O medo "https://${geovpnnnnn}/medo.sh"
+wget -O menu "https://${geovpnnnnn}/menu.sh"
+wget -O paneli "https://${geovpnnnnn}/paneli.sh"
+wget -O ppt "https://${geovpnnnnn}/ppt.sh"
+wget -O ssh "https://${geovpnnnnn}/ssh.sh"
+wget -O ssssr "https://${geovpnnnnn}/ssssr.sh"
+wget -O sstpp "https://${geovpnnnnn}/sstpp.sh"
+wget -O status "https://${geovpnnnnn}/status.sh"
+wget -O system "https://${geovpnnnnn}/system.sh"
+wget -O trojaan "https://${geovpnnnnn}/trojaan.sh"
+wget -O v2raay "https://${geovpnnnnn}/v2raay.sh"
+wget -O wgr "https://${geovpnnnnn}/wgr.sh"
+wget -O bbr "https://${geovpnnnnn}/bbr.sh"
+wget -O bannerku "https://${geovpnnnnn}/bannerku"
+wget -O bannerDOMAIN "https://${geovpnnnnnn}/bannerDOMAIN"
+wget -O bannerTRIAL "https://${geovpnnnnnn}/bannerTRIAL"
+wget -O bannerL2TP "https://${geovpnnnnnn}/bannerL2TP"
+wget -O bannerPPTP "https://${geovpnnnnnn}/bannerPPTP"
+wget -O bannerSHADOWSOCK "https://${geovpnnnnnn}/bannerSHADOWSOCK"
+wget -O bannerSSH "https://${geovpnnnnnn}/bannerSSH"
+wget -O bannerSSTP "https://${geovpnnnnnn}/bannerSSTP"
+wget -O bannerSYSTEM "https://${geovpnnnnnn}/bannerSYSTEM"
+wget -O bannerTROJAN "https://${geovpnnnnnn}/bannerTROJAN"
+wget -O bannerV2RAY "https://${geovpnnnnnn}/bannerV2RAY"
+wget -O bannerVPN "https://${geovpnnnnnn}/bannerVPN"
+wget -O bannerWIREGUARD "https://${geovpnnnnnn}/bannerWIREGUARD"
+wget -O bannerBACKUP "https://${geovpnnnnnn}/bannerBACKUP"
+wget -O addcf "https://${geovpnnnnnnn}/addcf.sh"
+wget -O cfd "https://${geovpnnnnnnn}/cfd.sh"
+wget -O cff "https://${geovpnnnnnnn}/cff.sh"
+wget -O cfh "https://${geovpnnnnnnn}/cfh.sh"
+wget -O host "https://${geovpnnnnnnn}/host.sh"
+wget -O pointing "https://${geovpnnnnnnn}/pointing.sh"
+wget -O bw "https://${geovpnnnnnnn}/bw.sh"
+wget -O update "https://${geovpnnnnnnn}/update.sh"
+wget -O host "https://${geovpnnnnnnn}/host.sh"
+wget -O trial-akun "https://${geovpnnnnnnnn}/trial-akun.sh"
+wget -O triall2tp "https://${geovpnnnnnnnn}/triall2tp.sh"
+wget -O trialpptp "https://${geovpnnnnnnnn}/trialpptp.sh"
+wget -O trialss "https://${geovpnnnnnnnn}/trialss.sh"
+wget -O trialssh "https://${geovpnnnnnnnn}/trialssh.sh"
+wget -O trialssr "https://${geovpnnnnnnnn}/trialssr.sh"
+wget -O trialsstp "https://${geovpnnnnnnnn}/trialsstp.sh"
+wget -O trialtrojan "https://${geovpnnnnnnnn}/trialtrojan.sh"
+wget -O trialv2ray "https://${geovpnnnnnnnn}/trialv2ray.sh"
+wget -O trialvless "https://${geovpnnnnnnnn}/trialvless.sh"
+wget -O trialwg "https://${geovpnnnnnnnn}/trialwg.sh"
+wget -O /usr/bin/trialv2ray https://${geovpnnnnnnnn}/trialv2ray.sh && chmod +x /usr/bin/trialv2ray && cd /usr/bin && apt install -y dos2unix && dos2unix trialv2ray
 chmod +x trial-akun
 chmod +x trialpptp
 chmod +x trialss
