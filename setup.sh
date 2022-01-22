@@ -20,30 +20,30 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 # Link Hosting Kalian Untuk Ssh Vpn
-geovpn="raw.githubusercontent.com/geovpn/scvps/main/ssh"
+geovpn="raw.githubusercontent.com/Wenisaputri/dkvpn/main/ssh"
 # Link Hosting Kalian Untuk Sstp
-geovpnn="raw.githubusercontent.com/geovpn/scvps/main/sstp"
+geovpnn="raw.githubusercontent.com/Wenisaputri/dkvpn/main/sstp"
 # Link Hosting Kalian Untuk Ssr
-geovpnnn="raw.githubusercontent.com/geovpn/scvps/main/ssr"
+geovpnnn="raw.githubusercontent.com/Wenisaputri/dkvpn/main/ssr"
 # Link Hosting Kalian Untuk Shadowsocks
-geovpnnnn="raw.githubusercontent.com/geovpn/scvps/main/shadowsocks"
+geovpnnnn="raw.githubusercontent.com/Wenisaputri/dkvpn/main/shadowsocks"
 # Link Hosting Kalian Untuk Wireguard
-geovpnnnnn="raw.githubusercontent.com/geovpn/scvps/main/wireguard"
+geovpnnnnn="raw.githubusercontent.com/Wenisaputri/dkvpn/main/wireguard"
 # Link Hosting Kalian Untuk Xray
-geovpnnnnnn="raw.githubusercontent.com/geovpn/scvps/main/xray"
+geovpnnnnnn="raw.githubusercontent.com/Wenisaputri/dkvpn/main/xray"
 # Link Hosting Kalian Untuk Ipsec
-geovpnnnnnnn="raw.githubusercontent.com/geovpn/scvps/main/ipsec"
+geovpnnnnnnn="raw.githubusercontent.com/Wenisaputri/dkvpn/main/ipsec"
 # Link Hosting Kalian Untuk Backup
-geovpnnnnnnnn="raw.githubusercontent.com/geovpn/scvps/main/backup"
+geovpnnnnnnnn="raw.githubusercontent.com/Wenisaputri/dkvpn/main/backup"
 # Link Hosting Kalian Untuk Websocket
-geovpnnnnnnnnn="raw.githubusercontent.com/geovpn/scvps/main/websocket"
+geovpnnnnnnnnn="raw.githubusercontent.com/Wenisaputri/dkvpn/main/websocket"
 # Link Hosting Kalian Untuk Ohp
-geovpnnnnnnnnnn="raw.githubusercontent.com/geovpn/scvps/main/ohp"
+geovpnnnnnnnnnn="raw.githubusercontent.com/Wenisaputri/dkvpn/main/ohp"
 
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
-IZIN=$( curl https://raw.githubusercontent.com/geovpn/perizinan/main/ip | grep $MYIP )
+IZIN=$( curl https://dpvpn.me/ip.json | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
 echo -e "${NC}${GREEN}Permission Accepted...${NC}"
 else
