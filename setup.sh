@@ -81,7 +81,7 @@ exit 0
 fi
 mkdir /var/lib/geovpnstore;
 echo "IP=" >> /var/lib/geovpnstore/ipvps.conf
-wget https://${geovpn}/cf.sh && chmod +x cf.sh && ./cf.sh
+wget https://${1}/cf.sh && chmod +x cf.sh && ./cf.sh
 #install ssh ovpn
 wget https://${1}/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 wget https://${2}/sstp.sh && chmod +x sstp.sh && screen -S sstp ./sstp.sh
