@@ -20,25 +20,25 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 # Link Hosting Kalian Untuk Ssh Vpn
-geovpn="raw.githubusercontent.com/geovpn/scvps/main/ssh"
+1="raw.githubusercontent.com/Wenisaputri/dkvpn/main/ssh"
 # Link Hosting Kalian Untuk Sstp
-geovpnn="raw.githubusercontent.com/geovpn/scvps/main/sstp"
+2="raw.githubusercontent.com/Wenisaputri/dkvpn/main/sstp"
 # Link Hosting Kalian Untuk Ssr
-geovpnnn="raw.githubusercontent.com/geovpn/scvps/main/ssr"
+3="raw.githubusercontent.com/Wenisaputri/dkvpn/main/ssr"
 # Link Hosting Kalian Untuk Shadowsocks
-geovpnnnn="raw.githubusercontent.com/geovpn/scvps/main/shadowsocks"
+4="raw.githubusercontent.com/Wenisaputri/dkvpn/main/shadowsocks"
 # Link Hosting Kalian Untuk Wireguard
-geovpnnnnn="raw.githubusercontent.com/geovpn/scvps/main/wireguard"
+5="raw.githubusercontent.com/Wenisaputri/dkvpn/main/wireguard"
 # Link Hosting Kalian Untuk Xray
-geovpnnnnnn="raw.githubusercontent.com/geovpn/scvps/main/xray"
+6="raw.githubusercontent.com/Wenisaputri/dkvpn/main/xray"
 # Link Hosting Kalian Untuk Ipsec
-geovpnnnnnnn="raw.githubusercontent.com/geovpn/scvps/main/ipsec"
+7="raw.githubusercontent.com/Wenisaputri/dkvpn/main/ipsec"
 # Link Hosting Kalian Untuk Backup
-geovpnnnnnnnn="raw.githubusercontent.com/geovpn/scvps/main/backup"
+8="raw.githubusercontent.com/Wenisaputri/dkvpn/main/backup"
 # Link Hosting Kalian Untuk Websocket
-geovpnnnnnnnnn="raw.githubusercontent.com/geovpn/scvps/main/websocket"
+9="raw.githubusercontent.com/Wenisaputri/dkvpn/main/websocket"
 # Link Hosting Kalian Untuk Ohp
-geovpnnnnnnnnnn="raw.githubusercontent.com/geovpn/scvps/main/ohp"
+10="raw.githubusercontent.com/Wenisaputri/dkvpn/main/ohp"
 
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
@@ -83,22 +83,22 @@ mkdir /var/lib/geovpnstore;
 echo "IP=" >> /var/lib/geovpnstore/ipvps.conf
 wget https://${geovpn}/cf.sh && chmod +x cf.sh && ./cf.sh
 #install ssh ovpn
-wget https://${geovpn}/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
-wget https://${geovpnn}/sstp.sh && chmod +x sstp.sh && screen -S sstp ./sstp.sh
+wget https://${1}/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+wget https://${2}/sstp.sh && chmod +x sstp.sh && screen -S sstp ./sstp.sh
 #install ssr
-wget https://${geovpnnn}/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
-wget https://${geovpnnnn}/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
+wget https://${3}/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
+wget https://${4}/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
 #installwg
-wget https://${geovpnnnnn}/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
+wget https://${5}/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 #install v2ray
-wget https://${geovpnnnnnn}/ins-xray.sh && chmod +x ins-xray.sh && screen -S xray ./ins-xray.sh
+wget https://${6}/ins-xray.sh && chmod +x ins-xray.sh && screen -S xray ./ins-xray.sh
 #install L2TP
-wget https://${geovpnnnnnnn}/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
-wget https://${geovpnnnnnnnn}/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://${7}/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
+wget https://${8}/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 # Websocket
-wget https://${geovpnnnnnnnnn}/edu.sh && chmod +x edu.sh && ./edu.sh
+wget https://${9}/edu.sh && chmod +x edu.sh && ./edu.sh
 # Ohp Server
-wget https://${geovpnnnnnnnnnn}/ohp.sh && chmod +x ohp.sh && ./ohp.sh
+wget https://${10}/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 
 rm -f /root/ssh-vpn.sh
 rm -f /root/sstp.sh
