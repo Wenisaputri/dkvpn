@@ -8,7 +8,7 @@ color1='\e[031;1m'
 color2='\e[34;1m'
 color3='\e[0m'
 MYIP=$(wget -qO- ifconfig.co);
-IZIN=$( curl https://https://dpvpn.me/ip.json| grep $MYIP )
+IZIN=$( curl https://dpvpn.me/ip.json| grep $MYIP )
 if [ $MYIP = $IZIN ]; then
 echo -e "${green}Permission Accepted...${NC}"
 else
